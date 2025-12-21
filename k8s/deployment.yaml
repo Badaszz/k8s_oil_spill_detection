@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oil_spill_detection
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: oil_spill_detection
+  template:
+    metadata:
+      labels:
+        app: oil_spill_detection
+    spec:
+      containers:
+      - name: oil_spill_detection
+        image: oil_spill_detection:v1
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "300m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        ports:
+        - containerPort: 8080
