@@ -10,7 +10,7 @@ COPY pyproject.toml uv.lock .python-version ./
 
 RUN uv sync --locked
 
-COPY map.py model ./
+COPY main.py model ./
 
 EXPOSE 8080
 
