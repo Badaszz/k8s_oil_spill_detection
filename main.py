@@ -8,12 +8,16 @@ import cv2
 from PIL import Image
 import io
 from pydantic import BaseModel
+from pathlib import Path
 
 app = FastAPI()
 
-# Load ONNX model
+# Load model
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "model" / "unet_oilspill.onnx"
+
 session = ort.InferenceSession(
-    "model/unet_oilspill.onnx",
+    str(MODEL_PATH),
     providers=["CPUExecutionProvider"]
 )
 
