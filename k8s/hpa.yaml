@@ -6,7 +6,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: oil_spill_detection
+    name: oil-spill-detection
   minReplicas: 2
   maxReplicas: 7
   metrics:

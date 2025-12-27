@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: oil_spill_detection
+  name: oil-spill-detection
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: oil_spill_detection
+      app: oil-spill-detection
   template:
     metadata:
       labels:
-        app: oil_spill_detection
+        app: oil-spill-detection
     spec:
       containers:
-      - name: oil_spill_detection
-        image: oil_spill_detection:v1
+      - name: oil-spill-detection
+        image: # Replace with your Docker image repository
         resources:
           limits:
             memory: "256Mi"
