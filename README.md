@@ -2,6 +2,8 @@
 
 An AI-powered oil spill detection system using deep learning. This project uses a UNet model trained on satellite imagery to detect and segment oil spills in ocean environments. The model is packaged as an ONNX model and served via a FastAPI application that can be deployed on Kubernetes.
 
+This project was built in order to detect oil spill in images, after the mask is created using the mdoel, the original image is returned, with a transparent red colour over the region detected as oil spills.
+
 ## Features
 
 - **Automated Detection**: Uses a trained UNet neural network to detect oil spills from satellite imagery
